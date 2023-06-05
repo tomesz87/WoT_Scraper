@@ -7,7 +7,7 @@ def get_links() -> list:
 
     :return: zip object containing the url and title param of the json records
     """
-    WOT_URL = "https://worldoftanks.eu/en/news/"
+    WOT_URL = "https://worldoftanks.eu/hu/news/"
 
     outer_pattern = re.compile(r'NEWS_LIST =.*CATEGORIES', flags=re.MULTILINE | re.DOTALL)
     url_pattern = re.compile(r'"url": "(/[^"]*)"', flags=re.MULTILINE)
