@@ -12,7 +12,7 @@ def post_message(message: str) -> None:
     :return:
     """
     load_dotenv()
-
+    message = '@everyone ' + message
     discord = Discord(url=os.getenv('DISCORD_WEBHOOK'))
     discord.post(content=message)
 
