@@ -1,4 +1,5 @@
 import sqlite3
+import os
 from functools import wraps
 
 
@@ -6,7 +7,7 @@ def db_connect(func):
     """ Handles the connection and cursor creation. Passes the cursor to the caller function"""
     @wraps(func)
     def wrapper(*args, **kwargs):
-        conn = sqlite3.connect('database.db')
+        conn = sqlite3.connect(os.path.join(os.getcwd(), 'database.db'))
         cursor = conn.cursor()
         result = func(cursor, *args, **kwargs)
         conn.commit()
